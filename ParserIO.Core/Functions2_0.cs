@@ -690,7 +690,7 @@ namespace ParserIO.Core
                         result.SubType = result.SubType + ".01";
                         //Check if GTIN-13 or GTIN-14
 
-                        string gtin= code.Substring(2, 14);
+                        string gtin = code.Substring(2, 14);
                         if (CheckGTINKey(gtin))
                         {
                             result.GTIN = gtin;
@@ -745,7 +745,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.Lot = code.Substring(2, skip - 2);
-                        code = code.Substring(skip, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("11"))
@@ -789,7 +789,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.Serial = code.Substring(2, skip - 2);
-                        code = code.Substring(skip, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     //Obsolete in v16
@@ -811,7 +811,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.VARCOUNT = code.Substring(2, skip - 2);
-                        code = code.Substring(skip, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("37"))
@@ -827,7 +827,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.COUNT = code.Substring(2, skip - 2);
-                        code = code.Substring(skip, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("91"))
@@ -843,7 +843,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.INTERNAL_91 = code.Substring(2, skip - 2);
-                        code = code.Substring(skip, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("92"))
@@ -859,7 +859,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.INTERNAL_92 = code.Substring(2, skip - 2);
-                        code = code.Substring(2, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("93"))
@@ -875,7 +875,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.INTERNAL_93 = code.Substring(2, skip - 2);
-                        code = code.Substring(2, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("94"))
@@ -891,7 +891,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.INTERNAL_94 = code.Substring(2, skip - 2);
-                        code = code.Substring(2, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("95"))
@@ -907,7 +907,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.INTERNAL_95 = code.Substring(2, skip - 2);
-                        code = code.Substring(2, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("96"))
@@ -923,7 +923,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.INTERNAL_96 = code.Substring(2, skip - 2);
-                        code = code.Substring(2, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("97"))
@@ -939,7 +939,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.INTERNAL_97 = code.Substring(2, skip - 2);
-                        code = code.Substring(2, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("98"))
@@ -955,7 +955,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.INTERNAL_98 = code.Substring(2, skip - 2);
-                        code = code.Substring(2, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("99"))
@@ -971,7 +971,7 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.INTERNAL_99 = code.Substring(2, skip - 2);
-                        code = code.Substring(2, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else if (code.StartsWith("240"))
@@ -987,17 +987,17 @@ namespace ParserIO.Core
                             skip = code.Length;
                         }
                         result.ADDITIONALID = code.Substring(3, skip - 3);
-                        code = code.Substring(skip, code.Length - skip);
+                        code = CutOffCurrentElement(code, skip);
                         Parse(code);
                     }
                     else
                     {
-                        result.AdditionalInformation = result.AdditionalInformation + ";" +code;
+                        result.AdditionalInformation = result.AdditionalInformation + ";" + code;
                     }
                     if (result.SubType.StartsWith("."))
                     {
                         result.SubType = result.SubType.Substring(1, result.SubType.Length - 1);
-                    }                   
+                    }
                 }
                 else if (result.Type == "HIBC")
                 {
@@ -1191,7 +1191,7 @@ namespace ParserIO.Core
 
                                 int endData = item.Length;
 
-                                if(asd1 == "L")
+                                if (asd1 == "L")
                                 {
                                     result.SubType = result.SubType + ".L";
                                     result.StorageLocation = item.Substring(1, endData - 1);
@@ -1566,7 +1566,7 @@ namespace ParserIO.Core
             code = Cleanse(code);
             if ((length > 5) && code.StartsWith("]C1"))
             {
-                string ai2 = code.Substring(3,2);
+                string ai2 = code.Substring(3, 2);
                 string ai3 = code.Substring(3, 3);
                 if (gs1AIList.Contains(ai2) | gs1AIList.Contains(ai3))
                 {
@@ -1706,7 +1706,7 @@ namespace ParserIO.Core
             {
                 if (analyse.SubType.Contains("01"))
                 {
-                    if (analyse.GTIN.Length==0)
+                    if (analyse.GTIN.Length == 0)
                     {
                         result = false;
                     }
@@ -1715,14 +1715,18 @@ namespace ParserIO.Core
 
             return result;
         }
-        private string FixGs1Delimiter(string code, InformationSet result)
+
+        private string CutOffCurrentElement(string code, int delimiterPos)
         {
+            return (code.Length == delimiterPos ? string.Empty : code.Substring(delimiterPos + 1, code.Length - delimiterPos - 1));
+        }
+
         private string FixGs1Delimiter(string code)
         {
             var replacementChar = (char)65533;
             var gsChar = (char)0x001d;
 
-            if (result.Type.StartsWith("GS1"))
+            if (this.result.Type.StartsWith("GS1"))
             {
                 code = code.Replace(replacementChar, gsChar);
             }
@@ -1765,7 +1769,7 @@ namespace ParserIO.Core
                 else
                 {
 
-                    result.AdditionalInformation = "Errors detected:" + result.AdditionalInformation.Remove(0,1);
+                    result.AdditionalInformation = "Errors detected:" + result.AdditionalInformation.Remove(0, 1);
                 }
             }
             catch (Exception e)
