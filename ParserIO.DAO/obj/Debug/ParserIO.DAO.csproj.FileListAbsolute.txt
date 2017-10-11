@@ -1,0 +1,5 @@
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.DAO\bin\Debug\ParserIO.DAO.dll
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.DAO\bin\Debug\ParserIO.DAO.pdb
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.DAO\obj\Debug\ParserIO.DAO.csprojResolveAssemblyReference.cache
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.DAO\obj\Debug\ParserIO.DAO.dll
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.DAO\obj\Debug\ParserIO.DAO.pdb

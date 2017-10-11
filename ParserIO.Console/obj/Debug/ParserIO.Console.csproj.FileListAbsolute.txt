@@ -1,0 +1,10 @@
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.Console\bin\Debug\ParserIO.Console.exe.config
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.Console\bin\Debug\ParserIO.Console.exe
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.Console\bin\Debug\ParserIO.Console.pdb
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.Console\bin\Debug\ParserIO.Core.dll
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.Console\bin\Debug\ParserIO.DAO.dll
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.Console\bin\Debug\ParserIO.Core.pdb
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.Console\bin\Debug\ParserIO.DAO.pdb
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.Console\obj\Debug\ParserIO.Console.csprojResolveAssemblyReference.cache
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.Console\obj\Debug\ParserIO.Console.exe
+C:\__TO\SkyDrive\Visual Studio\Projects\ParserIO\ParserIO.Console\obj\Debug\ParserIO.Console.pdb
