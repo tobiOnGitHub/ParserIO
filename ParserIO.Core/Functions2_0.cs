@@ -1715,6 +1715,19 @@ namespace ParserIO.Core
 
             return result;
         }
+        private string FixGs1Delimiter(string code, InformationSet result)
+        {
+        private string FixGs1Delimiter(string code)
+        {
+            var replacementChar = (char)65533;
+            var gsChar = (char)0x001d;
+
+            if (result.Type.StartsWith("GS1"))
+            {
+                code = code.Replace(replacementChar, gsChar);
+            }
+            return code;
+        }
         public InformationSet GetFullInformationSet(string code)
         {
             try
@@ -1723,6 +1736,7 @@ namespace ParserIO.Core
                 result.Type = Type(code);
                 result.SymbologyID = SymbologyID(code);
                 code = CleanSymbologyId(code);
+                code = FixGs1Delimiter(code);
 
                 Parse(code);
 
