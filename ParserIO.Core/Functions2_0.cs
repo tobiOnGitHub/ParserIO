@@ -3,42 +3,16 @@
 //<https://github.com/reseauphast/ParserIO>
 //
 
-using System;
 using ParserIO.DAO;
+using System;
 using System.Globalization;
-using System.Text.RegularExpressions;
-using System.Runtime.InteropServices;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 [assembly: AssemblyKeyFile("ParserIO.Core.snk")]
 namespace ParserIO.Core
 {
-
-    [Guid("EAA4976A-45C3-4BC5-BC0B-E474F4C3C83F")]
-    // InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
-    public interface IFunctions
-    {
-        [DispId(1)]
-        InformationSet GetFullInformationSet(string code);
-    }
-
-    [Guid("7BD20046-DF8C-44A6-8F6B-687FAA26FA71"),
-      InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
-    public interface ParserIO_Core_events
-    {
-    }
-
-    [Guid("0D53A3E8-E51A-49C7-944E-E72A2064F938"),
-      ClassInterface(ClassInterfaceType.AutoDual),
-      ComVisible(true)]
-    // [fr] Verifier si  ComVisible(true) est utile
-    // [en] Check if ComVisible(true) is useful or not
-    //[ProgId("ParserIO_functions")]
-
-
-
-
-    public class Functions : IFunctions
+    public class Functions
     {
         private InformationSet result = new InformationSet();
         private static int[] _month_days = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
